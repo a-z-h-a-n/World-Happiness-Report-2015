@@ -11,7 +11,7 @@ This project explores the 2015 World Happiness Report dataset and visualizes glo
 - **Goal:** Analyze and visualize how happiness scores vary across countries and regions.
 - **Dataset:** World Happiness Report (2015) from Kaggle.
 - **Tools Used:** 
-  - Python (Pandas, Matplotlib)
+  - Python
   - Power BI for dashboard design
   - Git & GitHub for version control
 
