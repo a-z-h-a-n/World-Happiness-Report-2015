@@ -1,6 +1,6 @@
 # 🌍 World Happiness Report 2015
 
-This project explores the 2015 World Happiness Report dataset and visualizes global happiness scores by country and region.
+This project analyzes and visualizes the **2015 World Happiness Report** using Power BI and Python. It explores how happiness scores vary across countries and regions based on economic, health, and social factors.
 
 ## 📊 Dashboard Preview
 
@@ -8,36 +8,67 @@ This project explores the 2015 World Happiness Report dataset and visualizes glo
 
 ## 🧠 Project Overview
 
-- **Goal:** Analyze and visualize how happiness scores vary across countries and regions.
-- **Dataset:** World Happiness Report (2015) from Kaggle.
-- **Tools Used:** 
-  - Python
-  - Power BI for dashboard design
-  - Git & GitHub for version control
+- **Goal:** Understand what factors contribute to happiness at the country and regional levels using the 2015 dataset.
+- **Data Source:** [World Happiness Report 2015 – Kaggle](https://www.kaggle.com/datasets/unsdsn/world-happiness) — provided by the United Nations Sustainable Development Solutions Network.
+- **Tools Used:**
+  - Python (Pandas for cleaning and aggregating data)
+  - Power BI (for dashboard design and interactivity)
+  - Git & GitHub (for version control and publishing)
 
-## 📁 Files Included
+## 🗺️ Map Visualization Logic
+
+The interactive map visual in this dashboard was thoughtfully designed to give an intuitive understanding of regional happiness levels:
+
+- **Bubble Size** is based on an **inverted happiness ranking**.  
+  This means countries with higher happiness (i.e., lower rank numbers) appear as **larger bubbles**, making it easier to spot positive trends at a glance.
+
+- This was accomplished by creating a calculated DAX measure that inverts the `happiness_rank` values:
+
+  ```DAX
+  HappinessRank_Inverted = 
+    MAXX(ALL('world_happiness_2015_cleaned'[happiness_rank]), 'world_happiness_2015_cleaned'[happiness_rank]) 
+    + 1 
+    - 'world_happiness_2015_cleaned'[happiness_rank]
+  ```
+
+- **Tooltips** were customized to provide additional insights when hovering over a region. These include:
+  - Average happiness score
+  - Economy (GDP per capita)
+  - Health (Life expectancy)
+  - Freedom, Trust, and Generosity scores
+
+Together, these enhancements make the map both visually engaging and analytically valuable for exploring how different factors relate to global happiness.
+
+## 📂 Files Included
 
 | File | Description |
 |------|-------------|
 | `2015.csv` | Raw dataset from Kaggle |
 | `world_happiness_2015_cleaned.csv` | Cleaned version of the dataset |
-| `world_happiness_2015_region_summary.csv` | Summary stats grouped by region |
-| `World Happiness Report.ipynb` | Data cleaning & analysis in Jupyter |
-| `World Happiness Dashboard - 2015 .png` | Final dashboard image |
-
-## 🗺️ Key Insights
-
-- Western Europe, North America, and Australia had the highest happiness scores.
-- Sub-Saharan Africa and Southern Asia scored significantly below the global average.
-- Happiness scores were visualized using maps, bar charts, and filters for interactivity.
+| `world_happiness_2015_region_summary.csv` | Summary statistics grouped by region |
+| `World Happiness Report.ipynb` | Data cleaning & analysis notebook |
+| `World Happiness Dashboard - 2015.png` | Final dashboard image |
+| `.pbix` file (optional) | Power BI dashboard file (if included)
 
 ## 📦 How to Use
 
-1. Clone the repo  
+1. Clone the repository  
+   ```bash
+   git clone git@github.com:yourusername/world-happiness-report-2015.git
+   ```
 
-2. Open the notebook in Jupyter or VS Code  
+2. Open the Jupyter notebook to view data preparation  
+   ```
+   World Happiness Report.ipynb
+   ```
 
-3. View the Power BI dashboard via the PNG or rebuild it using the CSV files.
+3. View the Power BI dashboard via the included PNG or recreate it using the CSV files in Power BI.
+
+## 📈 Key Insights
+
+- Western Europe, North America, and Australia lead in average happiness scores.
+- Sub-Saharan Africa and Southern Asia consistently fall below global averages.
+- Factors like GDP per capita and life expectancy show a strong correlation with happiness scores.
 
 ## ✅ Credits
 
