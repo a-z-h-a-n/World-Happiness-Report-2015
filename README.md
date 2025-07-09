@@ -69,7 +69,7 @@ Together, these enhancements make the map both visually engaging and analyticall
 - Western Europe, North America, and Australia lead in average happiness scores.
 - Sub-Saharan Africa and Southern Asia consistently fall below global averages.
 - Factors like GDP per capita and life expectancy show a strong correlation with happiness scores.
-- 
+  
 ### 💰 Wealth vs. Happiness (2015)
 There is a strong positive correlation between GDP per capita and happiness scores across countries. As economic prosperity increases, average happiness also tends to rise.
 
